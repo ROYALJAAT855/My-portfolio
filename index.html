@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dushyant Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. BASIC SETTINGS & ANIMATED BACKGROUND
+           ========================================= */
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* =========================================
+           2. GLASSMORPHISM CARD
+           ========================================= */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            margin-bottom: auto;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* =========================================
+           3. NAVBAR
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           4. BUTTONS
+           ========================================= */
+        .btn {
+            display: block;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp { background: linear-gradient(45deg, #11998e, #38ef7d); }
+        .btn-instagram { background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); }
+        .btn-resume { background: linear-gradient(45deg, #FF512F, #DD2476); }
+        .btn-project { background: linear-gradient(45deg, #232526, #414345); }
+
+        /* =========================================
+           5. OTHER ELEMENTS
+           ========================================= */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .input-box {
+            padding: 12px;
+            width: 85%;
+            margin-top: 10px;
+            border-radius: 25px;
+            border: 2px solid #ddd;
+            outline: none;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .input-box:focus {
+            border-color: #e73c7e;
+        }
+
+        /* --- FIXED BUTTON CSS HERE --- */
+        .mode-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .footer {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .dark-theme {
+            background: #1a1a1a;
+        }
+        .dark-theme .card {
+            background: #2d2d2d;
+            color: white;
+            border: none;
+        }
+        .dark-theme h1, .dark-theme p {
+            color: white !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+    </div>
+
+    <button onclick="changeMode()" class="mode-btn">🌙 Mode</button>
+
+    <div class="card">
+        <img src="me.jpg" class="profile-pic">
+        
+        <h1>Dushyant Balyan</h1>
+        
+        <input type="text" id="myMessage" class="input-box" placeholder="Yahan message type karein...">
+        
+        <p style="color: gray;">Future Web Developer | NOIDA</p>
+        <p>Seeking Web Development Jobs</p>
+
+        <button onclick="sendWhatsapp()" class="btn btn-whatsapp">
+            Contact Me on WhatsApp
+        </button>
+
+        <a href="https://instagram.com/royal________jaat" class="btn btn-instagram">
+            Follow Me on Instagram
+        </a>
+
+        <a href="RESUME.pdf" download class="btn btn-resume">
+            Download My Resume 📥
+        </a>
+
+        <a href="https://dushyant-calculator.netlify.app" target="_blank" class="btn btn-project">
+        🧮 Try My Calculator Project
+        </a>
+
+        <div style="margin-top: 20px;">
+            <a href="about.html" style="color: gray; text-decoration: none; font-size: 14px;">
+                View My Full Profile ➡
+            </a>
+        </div>
+    </div>
+
+   <div class="card" style="margin-top: 20px;">
+        <h2>My Skills 💻</h2>
+        
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <span style="background: #e34c26; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px;">HTML</span>
+            <span style="background: #264de4; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px;">CSS</span>
+            <span style="background: #f0db4f; color: black; padding: 5px 15px; border-radius: 20px; font-size: 14px;">JavaScript</span>
+            <span style="background: #61dbfb; color: black; padding: 5px 15px; border-radius: 20px; font-size: 14px;">React (Learning)</span>
+        </div>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.3);">
+
+        <h2>My Projects 🚀</h2>
+        
+       <div style="text-align: left;">
+            
+            <div style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                <strong>1. Digital Calculator 🧮</strong>
+                <p style="font-size: 12px; margin: 5px 0;">Pure JavaScript se bana iPhone style calculator.</p>
+                <a href="https://dushyant-calculator.netlify.app" target="_blank" style="color: #e73c7e; font-weight: bold; text-decoration: none; font-size: 12px;">Live Demo ➡</a>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                <strong>2. Portfolio Website 🌐</strong>
+                <p style="font-size: 12px; margin: 5px 0;">Glassmorphism design ke sath meri Identity.</p>
+                <span style="color: green; font-weight: bold; font-size: 12px;">You are here! ✅</span>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px; margin-bottom: 10px;">
+                <strong>3. Pro Weather App 🌦️</strong>
+                <p style="font-size: 12px; margin: 5px 0;">Real-time weather data with API integration.</p>
+                <a href="https://dushyant-weather.netlify.app" target="_blank" style="color: #e73c7e; font-weight: bold; text-decoration: none; font-size: 12px;">Check Weather ➡</a>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px;">
+                <strong>4. Smart To-Do List 📝</strong>
+                <p style="font-size: 12px; margin: 5px 0;">Task management app with Local Storage support.</p>
+                <a href="https://dushyant-balyan-todoapp.netlify.app" target="_blank" style="color: #e73c7e; font-weight: bold; text-decoration: none; font-size: 12px;">Manage Tasks ➡</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Made with ❤️ by Dushyant Balyan</p>
+        <p style="font-size: 12px; color: gray;">Copyright © 2025 | Khair, UP</p>
+    </div>
+
+    <script>
+        function changeMode() {
+            var body = document.body;
+            body.classList.toggle("dark-theme");
+        }
+
+        function sendWhatsapp() {
+            var message = document.getElementById("myMessage").value;
+            var number = "919389649924"; 
+
+            if (message == "") {
+                alert("Arey bhai, pehle message to likho! 😅");
+                return;
+            }
+
+            var url = "https://wa.me/" + number + "?text=" + message;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
